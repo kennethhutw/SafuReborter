@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Safu Reborter</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" integrity="sha256-g4+HzlttFiqgeuCnx3m308o0ahuBZ+0CRxaRWfSL0BU=" crossorigin="anonymous" />
+    <link href="css/report.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Safu Reborter</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+
+                    </li>
+                    <li class="page-scroll">
+
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Login </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="question1">
+            <div class="center">
+                <h2>
+                    <a href="/report" class="ui item">
+                        <i class="flag icon"></i> Report
+                    </a>
+                </h2>
+            </div>
+            <div class="row question1">
+                <div class="ui raised segment text_center question">
+                    <h1>Has any of your money been stolen?</h1>
+                </div>
+            </div>
+            <div class="row question1">
+                <div class='col-lg-12 col-md-12 text_center'>
+                    <button id="1yes" class="ui spacing big positive button">
+                        Yes, it was
+                    </button>
+                    <button id="1no" class="ui spacing big negative button">
+                        No - I want to report an address/website
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="question2a" style="display: none;">
+            <h2 class="question">Addresses</h2>
+            <div class="row">
+                <div class="input-group" style="width:100%">
+                    <button class="btn black btn-lg" style="background-color:black;color:white" type="submit">Your wallet address:</button>
+                    <input class="btn btn-lg" name="address" id="address" type="text" value="0x6fc7C2627BbD01A1a92C9c04Dd911fE1dc2b07d7" placeholder="0x0000000000000000000000000000000000000000" maxlength="42" style="width:75%" required>
+
+                </div>
+            </div>
+            <div class="row">
+                <label>All addresses that the attacker used to get money out of your wallet (one address per line)</label>
+
+            </div>
+            <div class="row">
+                <textarea id="to" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+            </div>
+            <div class="row question">
+                <button id="2returna" class="ui spacing big primary icon button">
+                    <i class="angle left icon"></i>Back
+                </button>
+                <button id="2senda" class="ui spacing big primary icon button">
+                    Continue<i class="angle right icon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="question3" style="display: none;">
+            <h2 class="question">Check your browsing history <sup><a href="#" id="3notsure2"><i class="help circle icon"></i></a></sup></h2>
+            <div class="ui centered grid">
+                <div class="ui raised segment question">
+                    <h1>Have you entered your private key on any site different than mycrypto.com?</h1>
+                </div>
+            </div>
+            <div class="actions">
+                <button id="3yes" class="ui spacing large positive button">
+                    Yes, report a phishing domain
+                </button>
+
+                <button id="3notsure" class="ui spacing large primary button">
+                    I'm not sure
+                </button>
+
+                <button id="3no" class="ui spacing large negative button">
+                    No, I have not
+                </button>
+
+            </div>
+        </div>
+        <div class="question4a">
+            <div class="ui centered grid question">
+                <div class="ui raised segment question">
+                    <h1>On what website have you entered your private key?</h1>
+                </div>
+            </div>
+            <div class="ui centered grid question">
+                <div class="ui labeled input question2">
+                    <div class="ui black label">
+                        Website:
+                    </div>
+                    <input type="text" id="privdomain" placeholder="fake-mycrypto.com">
+                </div>
+            </div>
+            <div class="actions">
+                <button id="4returna" class="ui spacing big primary icon button">
+                    <i class="angle left icon"></i>Back
+                </button>
+                <button id="4senda" class="ui spacing big primary icon button">
+                    Send<i class="angle right icon"></i>
+                </button>
+            </div>
+        </div>
+        <div class="end">
+            <h2 class="ending"><i class="checkmark icon"></i> Thanks for your report</h2>
+            <h3>Your report has been sent. In the meanwhile, you can learn how to protect yourself and others in the future:</h3>
+            <BR>
+            <div class="ui list">
+                <div class="item">
+                    <h3>- Read <a href="https://support.mycrypto.com/security/securing-your-ethereum.html">Protecting Yourself and Your Funds</a> by MyCrypto</h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">- Read <a href="https://support.mycrypto.com/security/phish-hacks-thefts-and-stolen-funds-due-to-phishing.html">What To Do If Your Funds Are Stolen</a> by MyCrypto</h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">- Buy a <a href="https://www.ledgerwallet.com/r/6e75?path=/products/">Ledger Nano S</a> or a <a href="https://shop.trezor.io/?a=luit.hollander@gmail.com">Trezor</a></h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">- <a href="https://safebrowsing.google.com/safebrowsing/report_phish/">Report a domain to Google Safebrowsing</a></h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">- If you have IE / Edge, report a domain <a href="https://support.microsoft.com/en-us/help/930167/how-to-report-a-phishing-web-site">here</a></h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">Install <a href="https://chrome.google.com/webstore/detail/etheraddresslookup/pdknmigbbbhmllnmgdfalmedcmcefdfn?hl=en-GB">EtherAddressLookup</a> on Google Chrome</h3>
+                </div>
+                <div class="item">
+                    <h3 class="link">Install <a href="https://chrome.google.com/webstore/detail/ethersecuritylookup/bhhfhgpgmifehjdghlbbijjaimhmcgnf">EtherSecurityLookup</a> on Google Chrome</h3>
+                </div>
+            </div>
+        </div>
+        <div class="question8">
+                <div class="ui centered grid">
+                    <div class="ui raised segment question">
+                        <h1>Do you want to report a domain or an address?</h1>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button id="8domain" class="ui spacing large primary button">
+                        A domain
+                    </button>
+            
+                    <button id="8address" class="ui spacing large primary button">
+                        An address
+                    </button>
+            
+                    <button id="8else" class="ui spacing large primary button">
+                        Something else
+                    </button>
+                </div>
+            </div>
+            <div class="question9a">
+                    <div class="ui centered grid">
+                        <div class="ui raised segment question">
+                            <h1>What malicious domain would you like to report?</h1>
+                        </div>
+                    </div>
+                    <div class="ui centered align grid addr">
+                        <div class="ui labeled input question2">
+                            <div class="ui black label">
+                                Domain:
+                            </div>
+                            <input type="text" id="gendomain" placeholder="fake-mycrypto.com">
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button id="9returna" class="ui spacing big primary icon button">
+                            <i class="angle left icon"></i>Back
+                        </button>
+                        <button id="9senda" class="ui spacing big primary icon button">
+                            Continue<i class="angle right icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="question9c">
+                        <div class="ui centered grid">
+                            <div class="ui raised segment question">
+                                <h1>What would you like to report?</h1>
+                            </div>
+                        </div>
+                        <div class="ui form question2">
+                            <div class="field">
+                                <textarea id="uniquerep" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button id="9returnc" class="ui spacing big primary icon button">
+                                <i class="angle left icon"></i>Back
+                            </button>
+                            <button id="9sendc" class="ui spacing big primary icon button">
+                                Send<i class="angle right icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                <div class="question10">
+                        <div class="ui centered grid">
+                            <div class="ui raised segment question">
+                                <h1>Please specify a reason for your report</h1>
+                            </div>
+                        </div>
+                        <div class="ui form question2">
+                            <div class="field">
+                                <textarea id="reason" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button id="10return" class="ui spacing big primary icon button">
+                                <i class="angle left icon"></i>Back
+                            </button>
+                            <button id="10send" class="ui spacing big primary button">
+                                Send<i class="angle right icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="question9b">
+                            <div class="ui centered grid">
+                                <div class="ui raised segment question">
+                                    <h1>What malicious address would you like to report?</h1>
+                                </div>
+                            </div>
+                            <div class="ui centered align grid addr">
+                                <div class="ui labeled input question2">
+                                    <div class="ui black label">
+                                        Address:
+                                    </div>
+                                    <input type="text" id="address" placeholder="0x0000000000000000000000000000000000000000" maxlength="42">
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <button id="9returnb" class="ui spacing big primary icon button">
+                                    <i class="angle left icon"></i>Back
+                                </button>
+                                <button id="9sendb" class="ui spacing big primary icon button">
+                                    Continue<i class="angle right icon"></i>
+                                </button>
+                            </div>
+                        </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js" integrity="sha256-Wl7niWgEJX3PdPn8lBzIDCWO1FBCYExjQihbT4ldMok=" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script src="js/report.js"></script>
+</body>
+
+</html>
